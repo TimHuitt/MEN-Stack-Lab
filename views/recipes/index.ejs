@@ -4,16 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= title %></title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
+  <h2><%= title %></h2>
   <a href="/recipes/new">Add new recipe</a>
   <section>
-    <ul>
     <% recipes.forEach((r) => { %>
-      <li><%= r.name %><br><%= r.ingredients.toString() %></li>
-      <a href="/recipes/<%= r._id %>">Details</a>
+      <div class="card">
+        <div class="container">
+          <h4><b><%= r.name %></b></h4>
+          <p><%= r.ingredients.join(', ') %></p>
+          <a href="/recipes/<%= r._id %>">Details</a>
+        </div>
+      </div>
     <% }) %>
-  </ul>
   </section>
 </body>
 </html>
