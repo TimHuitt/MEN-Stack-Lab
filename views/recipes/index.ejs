@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+</head>
+<body>
+  <section>
+    <ul>
+    <% recipes.forEach((r) => { %>
+      <li><%= r.name %><br><%= r.ingredients.toString() %></li>
+      <a href="/recipes/<%= r._id %>">Details</a>
+    <% }) %>
+  </ul>
+  </section>
+</body>
+</html>

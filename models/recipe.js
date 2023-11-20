@@ -11,7 +11,7 @@ const recipeSchema = new Schema(
         },
         ingredients:{
             type:['String'],
-            required: true,
+            // required: true,
         },
     },{timestamps: true}
 )
