@@ -1,22 +1,23 @@
 var express = require('express');
 var router = express.Router();
-var recipeCtrl = require('../controller/recipes');
-const recipe = require('../models/recipe');
+var recipesCtrl = require('../controller/recipes');
+var instructionsCtrl = require('../controller/instructions')
+
 
 /* GET users listing. */
-router.get('/', recipeCtrl.index)
+router.get('/', recipesCtrl.index)
 
-router.get('/new', recipeCtrl.new)
+router.get('/new', recipesCtrl.new)
 
-router.get('/:id', recipeCtrl.show)
+router.get('/:id', recipesCtrl.show)
 
-router.post('/', recipeCtrl.create)
+router.post('/', recipesCtrl.create)
 
-router.delete('/:id', recipeCtrl.delete)
+router.delete('/:id', recipesCtrl.delete)
 
-router.get('/:id/edit', recipeCtrl.edit)
+router.get('/:id/edit', recipesCtrl.edit)
 
-router.put('/:id', recipeCtrl.update)
+router.put('/:id', recipesCtrl.update)
 
 
 
