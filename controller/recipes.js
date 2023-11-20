@@ -6,7 +6,13 @@ module.exports = {
   index,
   show,
   delete: deleteRecipe,
+  edit
 };
+
+async function edit(req, res) {
+    const recipe = await Recipe.findById(req.params.id)
+    res.render('recipes/edit', { title: 'Editing', recipe })
+}
 
 async function index(req, res) {
     

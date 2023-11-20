@@ -14,4 +14,8 @@ router.post('/', recipeCtrl.create)
 
 router.delete('/:id', recipeCtrl.delete)
 
+router.get('/:id/edit', recipeCtrl.edit)
+
+
+
 module.exports = router;
