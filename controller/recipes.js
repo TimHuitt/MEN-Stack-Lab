@@ -13,7 +13,7 @@ function newRecipe(req, res) {
 async function create(req, res) {
     try{
         const newRecipe = await Recipe.create(req.body);
-        res.render('show', {title: "Add Recipe", newRecipe})
+        res.redirect('/recipe/index', {title: "Add Recipe", newRecipe})
 
     }catch(err){
         console.log(err)
