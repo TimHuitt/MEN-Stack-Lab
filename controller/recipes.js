@@ -4,7 +4,8 @@ module.exports = {
   new: newRecipe,
   create,
   index,
-  show
+  show,
+  delete: deleteRecipe,
 };
 
 async function index(req, res) {
@@ -48,4 +49,13 @@ try {
     console.log(err)
 }
 
+}
+
+async function deleteRecipe(req, res){
+    try{
+        await Recipe.deleteOne({_id: req.params.id})
+        res.redirect('/recipes')
+    }catch(err){
+        console.log(err)
+    }
 }
