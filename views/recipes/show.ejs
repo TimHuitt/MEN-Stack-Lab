@@ -17,5 +17,23 @@
         <button type="submit"> Edit Recipe</button>
       </form>
   </section>
+
+  <section>
+    <h2>Instruction</h2>
+    <form action="/recipes/<%= recipe._id%>/instructions" method="POST">
+      <label>The Instruction</label>
+      <textarea name="steps" id="steps"></textarea>
+      <button type="submit"> Save Your Instruction</button>
+    </form>
+  </section>
+
+
+
+
+
+
+
+
+
 </body>
 </html>
