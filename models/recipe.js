@@ -18,7 +18,9 @@ const recipeSchema = new Schema(
             type: [String],
             // required: true,
         },
-        steps:[instructionSchema]
+        steps:[instructionSchema],
+        image: {type: String}
+        
     },{timestamps: true}
 )
 
