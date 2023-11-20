@@ -7,9 +7,23 @@
 </head>
 <body>
   <section> 
-      <p><%= recipe.name %><br></p>
-      <br>
-      <p><%= recipe.steps[0].steps %></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Food</th>
+          <th>Ingredients</th>
+          <th>Instructions</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td><%= recipe.name %></td>
+            <td><%= recipe.ingredients %></td>
+            <td><%= recipe.steps[0].steps %></td>
+          </tr>
+    
+      </tbody>
+    </table>
       <a href="/recipes">All Recipes</a>
       
       <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
@@ -19,6 +33,7 @@
         <button type="submit"> Edit Recipe</button>
       </form>
   </section>
+  
 
 
   <section>
@@ -29,7 +44,6 @@
       <button type="submit"> Save Your Instruction</button>
     </form>
   </section>
-
 
 
 
