@@ -6,7 +6,8 @@ module.exports = {
   index,
   show,
   delete: deleteRecipe,
-  edit
+  edit,
+  update: updateRecipe
 };
 
 async function edit(req, res) {
@@ -62,6 +63,18 @@ async function deleteRecipe(req, res){
         await Recipe.deleteOne({_id: req.params.id})
         res.redirect('/recipes')
     }catch(err){
+        console.log(err)
+    }
+}
+
+async function updateRecipe(req, res){
+    console.log(req.params.id)
+    console.log(req.body)
+    try{
+        const recipe = await Recipe.findOneAndUpdate({_id: req.params.id}, {$set: req.body})
+        res.redirect(`/recipes/${req.params.id}`)
+
+    } catch(err){
         console.log(err)
     }
 }
