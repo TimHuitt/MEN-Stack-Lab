@@ -9,6 +9,9 @@
   <section> 
       <%= recipe.name %><br>
       <a href="/recipes">All Recipes</a>
+      <form action="/recipes/<%= recipe._id%>?_method=DELETE" method="POST">
+        <button type="submit"> Delete Recipe</button>
+      </form>
   </section>
 </body>
 </html>
