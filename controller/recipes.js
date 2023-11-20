@@ -4,6 +4,7 @@ module.exports = {
   new: newRecipe,
   create,
   index,
+  show
 };
 
 async function index(req, res) {
@@ -33,7 +34,17 @@ async function create(req, res) {
         console.log(err)
 
     }
+}
 
-//   res.redirect('/')
-//   res.send("create");
+async function show(req, res) {
+try {
+    const recipe = await Recipe.findById(req.params.id)
+    res.render('recipes/show', {
+        title: 'Recipe',
+        recipe
+    })
+} catch (err){
+    console.log(err)
+}
+
 }
