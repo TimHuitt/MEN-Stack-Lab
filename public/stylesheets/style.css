@@ -21,3 +21,7 @@ a {
 .container {
   padding: 2px 16px;
 }
+
+li {
+  list-style: none;
+}

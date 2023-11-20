@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= title %></title>
-</head>
-<body>
+
+<%- include('../partials/header') %>
   <section> 
     <table>
       <thead>
@@ -19,18 +13,23 @@
           <tr>
             <td><%= recipe.name %></td>
             <td><%= recipe.ingredients %></td>
-            <td><%= recipe.steps[0].steps %></td>
+            <td>
+            <ul>
+                <% recipe.steps.forEach((s) => { %>
+                  <li><%= s.steps %></li>
+                <% }) %>
+              </ul>
+            </td> 
           </tr>
-    
       </tbody>
     </table>
       <a href="/recipes">All Recipes</a>
       
       <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
-        <button type="submit"> Delete Recipe</button>
+        <button class="btn btn-secondary m-2" type="submit"> Delete Recipe</button>
       </form>
       <form action="/recipes/<%= recipe._id %>/edit" method="GET">
-        <button type="submit"> Edit Recipe</button>
+        <button class="btn btn-secondary m-2" type="submit"> Edit Recipe</button>
       </form>
   </section>
   
@@ -39,18 +38,12 @@
   <section>
     <h2>Instruction</h2>
     <form action="/recipes/<%= recipe._id%>/instructions" method="POST">
-      <label>The Instruction</label>
-      <textarea name="steps" id="steps"></textarea>
-      <button type="submit"> Save Your Instruction</button>
+      <div class="form-group">
+        <label>The Instruction</label>
+        <textarea class="form-control" name="steps" id="steps"></textarea>
+        <button class="btn btn-primary m-2" type="submit"> Save Your Instruction</button>
+      </div>
     </form>
   </section>
 
-
-
-
-
-
-
-
-</body>
-</html>
+  <%- include('../partials/footer') %>

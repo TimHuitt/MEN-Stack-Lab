@@ -28,16 +28,15 @@ async function index(req, res) {
 }
 
 function newRecipe(req, res) {
-  res.render("recipes/new");
+  res.render("recipes/new", {title: 'Editing'});
   //res.send('new')
 }
 
 async function create(req, res) {
     try{
+        req.body.ingredients = req.body.ingredients.split(',').map(i => i.trim())
         const newRecipe = await Recipe.create(req.body);
-        console.log(newRecipe)
-        console.log(req.body)
-        res.redirect('/recipes')
+        res.redirect('/recipes/')
 
     }catch(err){
         console.log(err)
@@ -47,7 +46,10 @@ async function create(req, res) {
 
 async function show(req, res) {
 try {
+
     const recipe = await Recipe.findById(req.params.id)
+    console.log(recipe.steps)
+
     res.render('recipes/show', {
         title: 'Recipe',
         recipe

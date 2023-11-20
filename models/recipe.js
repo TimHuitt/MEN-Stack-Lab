@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const instructionSchema = new Schema({
     steps:{
-        type:[String],
+        type:String,
         required: true,
     }
 },{timestamps:true})
