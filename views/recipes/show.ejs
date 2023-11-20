@@ -7,7 +7,9 @@
 </head>
 <body>
   <section> 
-      <%= recipe.name %><br>
+      <p><%= recipe.name %><br></p>
+      <br>
+      <p><%= recipe.steps[0].steps %></p>
       <a href="/recipes">All Recipes</a>
       
       <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
@@ -17,6 +19,7 @@
         <button type="submit"> Edit Recipe</button>
       </form>
   </section>
+
 
   <section>
     <h2>Instruction</h2>
